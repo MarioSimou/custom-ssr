@@ -1,0 +1,6 @@
+export const HEADER_X_PAGE_CHANGE = 'X-Page-Change'
+export const HEADER_X_PAGE_PREFETCH = 'X-Page-Prefetch'
+export const HEADER_CONTENT_TYPE = 'Content-Type'
+export const HEADER_CACHE_CONTROL = 'Cache-Control'
+export const EVENT_PAGE_CHANGE = 'pagechange'
+export const MIME_TEXT_HTML = 'text/html'

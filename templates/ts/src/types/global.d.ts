@@ -1,8 +1,6 @@
-interface Window {
-  __SERVER_DATA__: Maybe<any>
-}
-
 type Maybe<TData> = TData | undefined
+type Data = Record<string, unknown>
+
 type Post = {
   id: number
   title: string

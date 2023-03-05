@@ -1,0 +1,38 @@
+{
+  "name": "template-ts",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "build:pages": "esbuild --bundle --loader:.tsx=tsx --splitting --format=esm --chunk-names=[hash]/[dir]/[name] --outdir=dist/pages --jsx=automatic --jsx-dev ./src/pages/_entrypoint.ts",
+    "build:client": "esbuild --bundle --loader:.tsx=tsx --format=esm --outdir=dist --jsx=automatic --jsx-dev ./src/client-entrypoint.tsx",
+    "build:server": "esbuild --bundle --loader:.tsx=tsx --format=cjs --out-extension:.js=.cjs  --outdir=dist --jsx=automatic --jsx-dev --platform=node ./src/server-entrypoint.ts",
+    "build:pages:watch": "pnpm build:pages --watch",
+    "build:client:watch": "pnpm build:client --watch",
+    "build:server:watch": "pnpm build:server --watch",
+    "type:check": "tsc",
+    "type:check:watch": "tsc --watch",
+    "start:server:dev": "NODE_ENV=development node --watch ./dist/server-entrypoint.cjs",
+    "start:dev": "run-p build:client:watch build:server:watch build:pages:watch start:server:dev type:check:watch",
+    "clean": "rm -rf ./dist ./node_modules 2>/dev/null"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express-ssr": "workspace:^1.0.0",
+    "esbuild": "^0.17.10",
+    "express": "^4.18.2",
+    "path-parser": "^6.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.14.2",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^4.9.5"
+  }
+}

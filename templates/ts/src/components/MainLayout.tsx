@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'express-ssr/browser'
 
 type MainLayoutProps = {
   children: React.ReactNode
@@ -9,7 +9,9 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
     <div>
       <header>
         <nav>
-          <Link to="/">Home</Link>
+          <Link href="/posts">Posts</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact-us">Contact us</Link>
         </nav>
       </header>
       <main>{children}</main>
